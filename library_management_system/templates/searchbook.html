@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Books</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5dc; /* light cream color */
+        color: #333; /* dark text color */
+        min-height: 100vh; /* Set minimum height of the body to full viewport height */
+        position: relative; /* Set body's position to relative */
+    }
+    header {
+        background-color: #545454; /* darker cream color */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+    }
+    body {
+    background-image: url('static/img/background.png'); /* Background image */
+    background-size: cover; /* Ensure the entire background image is visible */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+}
+    .logo {
+        text-align: center;
+    }
+    .logo img {
+        max-height: 150px;
+        max-width: 150px;
+    }
+    .menu {
+        text-align: center;
+    }
+    .menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+    .menu li {
+        margin-right: 20px;
+    }
+    .menu li:last-child {
+        margin-right: 0;
+    }
+    .menu a {
+        text-decoration: none;
+        color: #fff; /* white text color */
+        padding: 10px 20px; /* Add padding */
+        background-color: #545454; /* darker cream color */
+        border-radius: 5px; /* Rounded corners */
+        transition: transform 0.3s; /* Add transition effect */
+    }
+    .menu a:hover {
+        transform: scale(1.1); /* Zoom effect on hover */
+        background-color: #333; /* dark background color */
+    }
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding-bottom: 100px; /* Set padding bottom to accommodate footer */
+    }
+    table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff; /* White background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Slight shadow effect */
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #545454; /* darker cream color */
+    color: #fff; /* dark text color */
+}
+
+    form {
+        margin-bottom: 20px;
+    }
+    input[type="text"] {
+        width: calc(100% - 120px); /* subtract padding and button width from total width */
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    #searchForm input[type="submit"],
+        #searchForm button {
+            margin-left: 10px;
+            background-color: #545454;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #searchForm {
+            display: flex;
+            align-items: center;
+        }
+        footer {
+            background-color: #545454; /* darker cream color */
+            color: #fff; /* dark text color */
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            position: fixed; /* Set footer's position to absolute */
+            bottom: 0; /* Align footer to the bottom */
+        }
+</style>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="static/img/logo.png" alt="Book Wise">
+    </div>
+    <nav class="menu">
+        <ul>
+            <li><a href="{{ url_for('index') }}" class="active">HOME</a></li>
+            <li><a href="{{ url_for('aboutus') }}">ABOUT</a></li>
+            <li><a href="{{ url_for('contatcus') }}">CONTACT</a></li>
+        </ul>
+    </nav> 
+</header>
+<main>
+<div class="container">
+    <form id="searchForm" method="post">
+        <input type="text" id="bookName" name="bookName" placeholder="Enter Book Name">
+        <input type="submit" value="Search">
+        <button type="button" id="resetButton">Reset</button>
+    </form>
+    <div id="bookDetails">
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Book Name</th>
+                    <th>Author</th>
+                    <th>Genre</th>
+                    <th>Publication Year</th>
+                    <th>Available Quantity</th>
+                </tr>
+            </thead>
+            <tbody id="bookList">
+                {% if books %}
+                    {% for book in books %}
+                        <tr>
+                            <td>{{ book[0] }}</td>
+                            <td>{{ book[1] }}</td>
+                            <td>{{ book[2] }}</td>
+                            <td>{{ book[3] }}</td>
+                            <td>{{ book[4] }}</td>
+                            <td>{{ book[5] }}</td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="6" style="text-align: center;">No books found.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+</main>
+<footer>
+    <p class="copyright">© 2024 Book Wise. All Rights Reserved.</p>
+</footer>
+<script>
+    // Function to hide book details
+    function hideBookDetails() {
+        document.getElementById("bookDetails").style.display = "none";
+    }
+
+    // Handle click event on Reset button
+    document.getElementById("resetButton").addEventListener("click", function(event) {
+        hideBookDetails();
+        adjustFooterPosition();
+    });
+
+    // Function to adjust footer position based on content height
+    function adjustFooterPosition() {
+        var body = document.body,
+            html = document.documentElement,
+            height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+
+        // Check if the content height exceeds the viewport height
+        if (height > window.innerHeight) {
+            document.querySelector('footer').style.position = 'relative';
+        } else {
+            document.querySelector('footer').style.position = 'fixed';
+        }
+    }
+
+    // Call adjustFooterPosition on page load
+    window.addEventListener('load', adjustFooterPosition);
+</script>
+</body>
+</html>

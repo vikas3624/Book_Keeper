@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5dc; /* light cream color */
+            background-image: url('static/img/background.png'); /* Background image */
+            background-size: cover; /* Ensure the entire background image is visible */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Do not repeat the background image */
+            color: #333; /* dark text color */
+        }
+
+        header {
+            background-color: #545454; /* darker cream color */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .logo img {
+            max-height: 150px;
+            max-width: 150px;
+        }
+
+        .menu {
+            text-align: center;
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .menu li {
+            margin-right: 20px;
+        }
+
+        .menu li:last-child {
+            margin-right: 0;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #fff; /* white text color */
+            padding: 10px 20px; /* Add padding */
+            background-color: #545454; /* darker cream color */
+            border-radius: 5px; /* Rounded corners */
+            transition: transform 0.3s; /* Add transition effect */
+        }
+        
+        .menu a:hover {
+            transform: scale(1.1); /* Zoom effect on hover */
+            background-color: #333; /* dark background color */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* semi-transparent white background */
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* slight shadow effect */
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #545454; /* darker cream color */
+        }
+
+        footer {
+    background-color: #545454; /* darker cream color */
+    color: #fff; /* dark text color */
+    text-align: center;
+    padding: 20px 0;
+    position: relative; /* Relative position */
+    bottom: 0;
+    width: 100%;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="static/img/logo.png" alt="Book Wise">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="{{ url_for('index') }}" class="active">HOME</a></li>
+                <li><a href="{{ url_for('aboutus') }}">ABOUT</a></li>
+                <li><a href="{{ url_for('contatcus') }}">CONTACT</a></li>
+            </ul>
+        </nav> 
+    </header>
+    <main>
+        <div class="container">
+            <h1>About Us</h1>
+            <p>Welcome to Book Wise! We are dedicated to providing efficient and convenient library services to our users.</p>
+            <p>Our website offers various features including:</p>
+            <ul>
+                <li>Search and browse books in our library catalog</li>
+                <li>Issue and return books with ease</li>
+                <li>View your borrowing history</li>
+                <li>Manage your account information</li>
+                <!-- Add more features as needed -->
+            </ul>
+            <p>With our user-friendly interface, you can explore our vast collection of books and enjoy a seamless borrowing experience.</p>
+            
+            <h2>Our Mission</h2>
+            <p>At Book Wise, our mission is simple yet profound: to make library services more accessible, efficient, and enjoyable for everyone. We strive to empower librarians with advanced tools and resources, while also providing patrons with a seamless borrowing and browsing experience.</p>
+
+            <h2>Our Team</h2>
+            <p>Behind the scenes, our dedicated team of developers, designers, and library professionals work tirelessly to innovate and improve our platform. With a passion for technology and a deep appreciation for the value of libraries, we are committed to creating solutions that benefit both librarians and patrons alike.</p>
+
+            <h2>Get in Touch</h2>
+            <p>Have questions or feedback? We'd love to hear from you! Feel free to reach out to us at <a href="mailto:info@bookwise.com">info@bookwise.com</a> and we'll be happy to assist you.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p class="copyright">© 2024 Book Wise. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
