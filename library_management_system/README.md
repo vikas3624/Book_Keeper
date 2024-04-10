@@ -1,2 +1,2 @@
-# petpals
+# BookWise
 Python project
