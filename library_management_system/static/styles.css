@@ -1,0 +1,25 @@
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+#schedule-form, #cancel-form, #display-schedule {
+    margin-top: 30px;
+}
+
+input, button {
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}

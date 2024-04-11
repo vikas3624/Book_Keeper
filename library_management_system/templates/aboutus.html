@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5dc; /* light cream color */
+            background-image: url('static/img/background.png'); /* Background image */
+            background-size: cover; /* Ensure the entire background image is visible */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Do not repeat the background image */
+            color: #333; /* dark text color */
+        }
+
+        header {
+            background-color: #545454; /* darker cream color */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .logo img {
+        margin-left: 220px;
+        max-height: 250px;
+        max-width: 250px;
+    }
+        .logo2 {
+        text-align: center;
+    }
+    .logo2 img {
+        max-height: 100px;
+        max-width: 100px;
+    }
+
+        .menu {
+            text-align: center;
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .menu li {
+            margin-right: 20px;
+        }
+
+        .menu li:last-child {
+            margin-right: 0;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #fff; /* white text color */
+            padding: 10px 20px; /* Add padding */
+            background-color: #545454; /* darker cream color */
+            border-radius: 5px; /* Rounded corners */
+            transition: transform 0.3s; /* Add transition effect */
+        }
+        
+        .menu a:hover {
+            transform: scale(1.1); /* Zoom effect on hover */
+            background-color: #333; /* dark background color */
+        }
+
+        .container1 {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* semi-transparent white background */
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* slight shadow effect */
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #545454; /* darker cream color */
+        }
+
+        footer {
+    background-color: #545454; /* darker cream color */
+    color: #fff; /* dark text color */
+    text-align: center;
+    padding: 20px 0;
+    position: relative; /* Relative position */
+    bottom: 0;
+    width: 100%;
+}
+#footerlist a{
+    text-decoration: none;
+    color: #fff; ;
+    
+}
+#footerlist li a:hover {
+    text-decoration: underline;
+    color:#CFB9A3 ; /* Change color as needed */
+}
+.footer{
+    color: #fff; ;
+}
+
+#footermail a{
+    text-decoration: none;
+    color: #fff; ;
+}
+
+#footermail a:hover{
+    text-decoration: underline;
+    color: #CFB9A3;
+}
+.footer-logo img{
+  max-height: 150px;
+  max-width: 150px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo2">
+            <img src="static/img/logo2.png" alt="Book logo">
+        </div>
+        <div class="logo">
+            <img src="static/img/logo.png" alt="Book Wise">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="{{ url_for('index') }}" class="active">HOME</a></li>
+                <li><a href="{{ url_for('aboutus') }}">ABOUT</a></li>
+                <li><a href="{{ url_for('contatcus') }}">CONTACT</a></li>
+            </ul>
+        </nav> 
+    </header>
+    <main>
+        <div class="container1">
+            <h1>About Us</h1>
+            <p>Welcome to Book Wise! We are dedicated to providing efficient and convenient library services to our users.</p>
+            <p>Our website offers various features including:</p>
+            <ul>
+                <li>Search and browse books in our library catalog</li>
+                <li>Issue and return books with ease</li>
+                <li>View your borrowing history</li>
+                <li>Manage your account information</li>
+                <!-- Add more features as needed -->
+            </ul>
+            <p>With our user-friendly interface, you can explore our vast collection of books and enjoy a seamless borrowing experience.</p>
+            
+            <h2>Our Mission</h2>
+            <p>At Book Wise, our mission is simple yet profound: to make library services more accessible, efficient, and enjoyable for everyone. We strive to empower librarians with advanced tools and resources, while also providing patrons with a seamless borrowing and browsing experience.</p>
+
+            <h2>Our Team</h2>
+            <p>Behind the scenes, our dedicated team of developers, designers, and library professionals work tirelessly to innovate and improve our platform. With a passion for technology and a deep appreciation for the value of libraries, we are committed to creating solutions that benefit both librarians and patrons alike.</p>
+
+            <h2>Get in Touch</h2>
+            <p>Have questions or feedback? We'd love to hear from you! Feel free to reach out to us at <a href="mailto:info@bookwise.com">info@bookwise.com</a> and we'll be happy to assist you.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-5 gx-md-5">
+                <div class="col mb-3">
+                    <h5>Sections</h5>
+                    <ul class="nav flex-column" id="footerlist">
+                        <li class="nav-item mb-2"><a href="#" >Home</a></li>
+                        <li class="nav-item mb-2"><a href="#" >Features</a></li>
+                        <li class="nav-item mb-2"><a href="contactus.html" >Contact</a></li>
+                        <li class="nav-item mb-2"><a href="#" >FAQs</a></li>
+                        <li class="nav-item mb-2"><a href="aboutus.html" >About</a></li>
+                    </ul>
+                </div>
+                <div class="col mb-3">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to our newsletter for updates.</p>
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Your email">
+                            <button class="btn btn-outline-light" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col mb-3" id="footermail">
+                    <h5>Contact</h5>
+                    <p><strong>E-Mail Us at:</strong><br>
+                        <a href="mailto:econest@gmail.com">bookwise@gmail.com</a><br>
+                        273 Yorkland Boulevard, Toronto, Canada<br><br><strong>Contact Us:</strong><br><a href="tel:+13457899012">+1 345-789-9012</a><br></p>
+                </div>
+                <div class="col mb-3">
+                    <h5>Follow Us on:</h5>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="https://twitter.com/?lang=en"><img src="static/img/twitter.jpeg" alt="Twitter" height="35" width="35"></a></li>
+                        <li class="list-inline-item"><a href="https://www.instagram.com/"><img src="static/img/instagram.jpeg" alt="Instagram" height="38" width="38"></a></li>
+                        <li class="list-inline-item"><a href="https://www.facebook.com/"><img src="static/img/facebook.jpeg" alt="Facebook" height="40" width="40"></a></li>    
+                    </ul>
+                </div>
+                <div class="footer-logo">
+                    <a href="./index.html"><img src="static/img/logo.png" alt="Bookwise Logo"></a> 
+                </div>
+                <div class="col mb-3">      
+                    <p>&copy; 2024 Bookwise. ALL RIGHTS RESERVED</p>
+                </div>
+            </div>
+        </div>
+      </footer>
+</body>
+</html>
