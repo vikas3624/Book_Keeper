@@ -1,2 +1,0 @@
-# BookWise
-Python project
